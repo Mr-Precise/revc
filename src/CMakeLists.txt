@@ -156,6 +156,8 @@ set_target_properties(${EXECUTABLE}
         CXX_STANDARD_REQUIRED ON
 )
 
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+
 if(${PROJECT}_INSTALL)
     install(
         TARGETS ${EXECUTABLE}

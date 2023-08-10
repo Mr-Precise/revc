@@ -48,6 +48,12 @@ else()
 endif()
 add_subdirectory(src)
 
+file(GLOB resources
+  "gamefiles/*"
+)
+
+file(COPY ${resources} DESTINATION ${CMAKE_BINARY_DIR}/gamefiles)
+
 if(${PROJECT}_INSTALL)
     install(DIRECTORY gamefiles/ DESTINATION ".")
     if(LIBRW_PLATFORM_NULL)
@@ -87,7 +93,7 @@ if(${PROJECT}_INSTALL)
     endif()
 
     set(CPACK_PACKAGE_NAME "${PROJECT_NAME}${platform}${audio}${os}${compiler}")
-    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "GTA III reversed")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "GTA VC reversed")
     set(CPACK_PACKAGE_VENDOR "GTAModding")
     # FIXME: missing license (https://github.com/GTAmodding/re3/issues/794)
     # set(CPACK_PACKAGE_DESCRIPTION_FILE "${PROJECT_SOURCE_DIR}/LICENSE")
