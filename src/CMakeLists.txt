@@ -28,6 +28,22 @@ target_link_libraries(${EXECUTABLE} PRIVATE
     librw::librw
     Threads::Threads
 )
+if(MINGW AND MINGW_FORCE_EXTRA_LIBS)
+    target_link_libraries(${EXECUTABLE} PRIVATE
+        mpg123
+        shlwapi
+        gdi32
+        oleaut32
+        user32
+        mingw32
+        opus
+        opusfile
+        ogg
+        winmm
+        imm32
+        oleaut32
+    )
+endif(MINGW AND MINGW_FORCE_EXTRA_LIBS)
 
 target_include_directories(${EXECUTABLE}
     PRIVATE

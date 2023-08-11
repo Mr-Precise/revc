@@ -40,6 +40,13 @@ if(NOT ${PROJECT}_AUDIO IN_LIST ${PROJECT}_AUDIOS)
     message(FATAL_ERROR "Illegal ${PROJECT}_AUDIO=${${PROJECT}_AUDIO}")
 endif()
 
+option(MINGW_FORCE_EXTRA_LIBS "MinGW extra libs (crutch)" OFF)
+if (MINGW_FORCE_EXTRA_LIBS)
+    message (STATUS "MinGW extra libs (crutch) enabled")
+else (MINGW_FORCE_EXTRA_LIBS)
+    message (STATUS "MinGW extra libs (crutch) disabled, use -DMINGW_FORCE_EXTRA_LIBS=ON to enable")
+endif (MINGW_FORCE_EXTRA_LIBS)
+
 option(${PROJECT}_VENDORED_LIBRW "Use vendored librw" ON)
 if(${PROJECT}_VENDORED_LIBRW)
     add_subdirectory(vendor/librw)
