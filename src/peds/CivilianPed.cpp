@@ -13,6 +13,7 @@
 #include "PedAttractor.h"
 #include "Object.h"
 #include "CarCtrl.h"
+#include <cfloat>
 
 #ifndef _WIN32
 #include <float.h>

@@ -3,6 +3,7 @@
 #ifdef AUDIO_OAL
 #include "channel.h"
 #include "sampman.h"
+#include <cfloat>
 
 #ifndef _WIN32
 #include <float.h>
