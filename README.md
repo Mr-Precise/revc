@@ -12,6 +12,31 @@ or the reimplementation [librw](https://github.com/aap/librw) (D3D9, OpenGL 2.1 
 - Build reVC or download the latest build:
   - [revc latest](https://github.com/Mr-Precise/revc/releases/latest)
 
+## Building from Source
+
+#### Install dependensies:
+Ubuntu/Debian:
+`sudo apt install g++ make cmake pkg-config libglfw3-dev libopus-dev libopusfile-dev libogg-dev libsndfile1-dev libopenal-dev libmpg123-dev`
+
+Clone the repository with  
+```bash
+git clone --recursive https://github.com/Mr-Precise/revc
+```
+Then ender into the cloned repository.  
+```bash
+cd revc
+```
+
+#### CMake configure && build
+```bash
+mkdir build && cd build
+cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DLIBRW_PLATFORM=GL3
+make -j$(($(nproc) + 1))
+```
+
+There are various settings in [config.h](https://github.com/Mr-Precise/revc/blob/main/src/core/config.h), you may want to take a look there.
+
+reVC uses completely homebrew RenderWare-replacement rendering engine; [librw](https://github.com/aap/librw/). librw comes as submodule of re3, but you also can use LIBRW enviorenment variable to specify path to your own librw.
 
 ## Improvements
 
@@ -43,16 +68,6 @@ Some of them can be toggled at runtime, some cannot.
 * Can load DFFs and TXDs from other platforms, possibly with a performance penalty
 * ...
 
-## Building from Source (SOON)  
-Clone the repository with `git clone --recursive https://github.com/Mr-Precise/revc`  
-Then `cd revc` into the cloned repository.
-
-### Linux CMake
-soon
-
-There are various settings in [config.h](https://github.com/Mr-Precise/revc/blob/main/src/core/config.h), you may want to take a look there.
-
-reVC uses completely homebrew RenderWare-replacement rendering engine; [librw](https://github.com/aap/librw/). librw comes as submodule of re3, but you also can use LIBRW enviorenment variable to specify path to your own librw.
 
 ## License
 
